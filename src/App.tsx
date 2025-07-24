@@ -1,34 +1,46 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Layout } from './components/Layout'
+import { NavigationButtons } from './components/NavigationButtons'
+import fotoCapa from './assets/fotocapa.jpg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeMenu, setActiveMenu] = useState('Capa')
+
+  const handleMenuClick = (menu: string) => {
+    setActiveMenu(menu)
+    console.log('Menu selecionado:', menu)
+  }
+
+  const renderContent = () => {
+    if (activeMenu === 'Capa') {
+      return (
+        <div className="capa-content">
+          <h1 className="main-title">Diagnóstico: The Dive</h1>
+          <div className="image-container">
+            <img src={fotoCapa} alt="Foto Capa" className="capa-image" />
+          </div>
+          <p className="subtitle">Descoberta de demandas e particularidades reais da liderança</p>
+          <NavigationButtons 
+            onPrevious={() => console.log('Anterior clicado')}
+            onNext={() => console.log('Próximo clicado')}
+          />
+        </div>
+      )
+    }
+    
+    return (
+      <div className="app-content">
+        <h1>{activeMenu}</h1>
+        <p>Conteúdo da seção: {activeMenu}</p>
+      </div>
+    )
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Layout activeMenu={activeMenu} onMenuClick={handleMenuClick}>
+      {renderContent()}
+    </Layout>
   )
 }
 

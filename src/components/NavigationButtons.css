@@ -1,0 +1,30 @@
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2.3rem;
+  margin-top: 0.5rem;
+}
+
+.nav-button {
+  background: linear-gradient(135deg, var(--green-700) 0%, #0a6b2f 50%, #0c7a36 100%);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font: 700 16px 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  box-shadow: 0 4px 8px rgba(8, 89, 41, 0.3);
+}
+
+.nav-button:hover {
+  background: linear-gradient(135deg, #064420 0%, #085929 50%, #0a6b2f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(8, 89, 41, 0.4);
+}
+
+.nav-button:focus {
+  outline: none;
+}

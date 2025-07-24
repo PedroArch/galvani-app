@@ -1,0 +1,26 @@
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --green-700: #085929;
+
+  --yellow-700: #B3A401;
+
+	--grey-200: #F7F7F7;
+	--grey-500: #D8DADC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--white);
+  color: #29292e;
+}
+
+body, input, button, textarea {
+  font: 400 16px 'Roboto', sans-serif;
+}
